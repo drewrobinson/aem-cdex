@@ -31,3 +31,11 @@
     order: unset;
   }
 }
+
+/** CDeX Styles **/
+
+.columns-img-col img {
+  width: 586px;
+  aspect-ratio: auto 586 / 390.667;
+  height: 390.667px;
+}

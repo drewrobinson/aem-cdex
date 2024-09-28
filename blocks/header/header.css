@@ -1,4 +1,5 @@
 /* header and nav layout */
+/*
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -56,8 +57,9 @@ header nav p {
 header nav a:any-link {
   color: currentcolor;
 }
-
+*/
 /* hamburger */
+/*
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -137,8 +139,9 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
     visibility: hidden;
   }
 }
-
+*/
 /* brand */
+/*
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
@@ -151,8 +154,9 @@ header nav .nav-brand img {
   width: 128px;
   height: auto;
 }
-
+*/
 /* sections */
+/*
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -268,8 +272,195 @@ header nav .nav-sections ul > li > ul > li {
     padding: 8px 0;
   }
 }
-
+*/
 /* tools */
+/*
 header nav .nav-tools {
   grid-area: tools;
+}
+*/
+.header.block {
+  max-width: 1280px;
+  margin:0 auto;
+}
+
+.logo {
+  margin-right: 40px;
+}
+
+.logo img {
+  max-height: 64px;
+  max-width: 192px;
+  border: none;
+  width: auto;
+}
+
+.headernav > div:first-child p {
+  margin-bottom: 0.2em;
+  font-size: 24px;
+} 
+
+.nav-wrapper {
+  display: flex;
+  font-size: var(--body-font-size-s);
+  line-height: 2em;
+  font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system, "system-ui", Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-color);
+}
+
+.nav-wrapper > nav {
+  display: flex; /* Set the nav as a flex container */
+  justify-content: flex-start; /* Distribute space evenly between items */
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.nav-wrapper a:any-link {
+  color: rgb(50, 49, 48);
+}
+
+.nav-wrapper ul {
+  display: flex;
+}
+
+.nav-wrapper ul li {
+  display: flex;
+  position: relative;
+  flex: 1;
+  align-items: center;
+  white-space: nowrap;
+  flex-direction: column;
+}
+
+.nav-wrapper ul,
+.nav-wrapper li {
+  list-style: none;
+  list-style-type: none;
+  margin:0;
+  padding:0;
+}
+
+.nav-wrapper ul.level-1 > li:not(:last-child) {
+  margin-right: 30px;
+}
+
+.nav-wrapper ul.level-2 {
+  display: none;
+  background-color:#fff;
+  border:1px #edebe9 solid;
+  background-image: linear-gradient(to right, #edebe9 1px, transparent 1px);
+  z-index:999;
+
+  position: absolute; /* Remove it from normal flow and position it relative to the parent */
+  top: 29px; /* Position it below the parent <li> */
+  left: 50%; /* Start positioning from the center of the parent li */
+  transform: translateX(-50%); /* Move it left by 50% of its own width to center */
+  width: auto; /* Allow the megamenu to size based on content */
+  min-width: 200px; /* Optional: set a minimum width */
+  box-shadow: rgba(0, 0, 0, 0.133) 0px 6.4px 14.4px 0px, rgba(0, 0, 0, 0.11) 0px 1.2px 3.6px 0px;
+  z-index: 1000; /* Ensure it is on top of other elements */
+  outline: transaprent;
+  border-radius:4px;
+}
+
+.nav-wrapper ul li.has-submenu {
+  padding-bottom: 29px;
+}
+
+.nav-wrapper ul li.has-submenu:hover:after {
+  content: ''; /* Insert empty content */
+  position: absolute; /* Position it relative to the parent */
+  top: 22px; /* Position it at the bottom of the parent li */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Adjust position to center it */
+  
+  /* Create the arrow shape */
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white; /* Color of the arrow (black in this case) */
+  
+  width: 0;
+  height: 0;
+  z-index: 1000; /* Make sure it's on top of other elements */
+}
+.nav-wrapper ul li.has-submenu:hover:before {
+  content: ''; /* Insert empty content */
+  position: absolute; /* Position it relative to the parent */
+  top: 22px; /* Same top position as the arrow */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Adjust position to center it */
+  
+  /* Create a slightly larger triangle for the shadow effect */
+  border-left: 11px solid transparent;
+  border-right: 11px solid transparent;
+  border-bottom: 11px solid rgba(237, 235, 233, 0.7); /* A lighter black or shadow color */
+  
+  width: 0;
+  height: 0;
+  z-index: 999; /* Position the shadow behind the arrow */
+
+  box-shadow: 0 -2px 3px rgba(237, 235, 233, 0.7);
+  filter: blur(3px); /* Blur the shadow to make it look more natural */
+}
+
+.nav-wrapper ul li.has-submenu > a:any-link {
+  position: relative;
+    padding-right: 15px; /* Add space for the chevron */
+    text-decoration: none; /* Remove underline */
+}
+
+.nav-wrapper ul li.has-submenu > a:any-link::after {
+  content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg); /* Rotate the element to form the chevron */
+    border: solid rgb(96, 94, 92); /* Adjust color as needed */
+    border-width: 0 1px 1px 0;
+    padding: 3px; /* Size of the chevron */
+}
+
+.nav-wrapper ul li:hover > ul.level-2 {
+  display: flex;
+}
+
+.nav-wrapper ul.level-2 {
+  flex-direction: row; /* Stack items vertically */
+  gap: 50px; /* Add 10px space between the <li> items */
+  padding: 10px; /* Optional padding */
+}
+
+.nav-wrapper ul.level-2 > li > a {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav-wrapper ul.level-2 li {
+  align-items: start;
+}
+
+.nav-wrapper ul.level-2 > li:first-child {
+  margin-left: 2em;
+}
+.nav-wrapper ul.level-2 > li:last-child{
+  margin-right: 4em;
+}
+.nav-wrapper ul.level-2 > li:not(:last-child) {
+  padding-right: 2em;
+  background-image: linear-gradient(to right, #edebe9 1px, transparent 1px);
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 1px 100%;
+}
+
+
+
+.nav-wrapper ul ul ul {
+  background-image: none;
+}
+
+.nav-wrapper ul.level-3 {
+  flex-direction: column;
+  align-items: flex-start;
 }
