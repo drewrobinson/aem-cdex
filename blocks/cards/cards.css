@@ -98,6 +98,7 @@
   grid-auto-flow: dense;
 }
 
+
 .cards.cards-hero-banner.hero-banner-image-right > ul > li {
   direction: rtl;
   grid-auto-flow: dense;
