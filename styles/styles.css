@@ -88,7 +88,7 @@ h6 {
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
-  margin-top: 1em;
+  margin-top: 0.5em;
   margin-bottom: 0.5em;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
@@ -132,6 +132,8 @@ main pre {
   white-space: pre;
 }
 
+
+
 /* links */
 a:any-link {
   color: var(--link-color);
@@ -143,32 +145,27 @@ a:hover {
   color: var(--link-hover-color);
 }
 
-/* buttons */
-a.button:any-link,
-button {
-  font-family: var(--body-font-family);
-  display: inline-block;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
-  font-style: normal;
-  font-weight: 600;
-  cursor: pointer;
+/* Button Link */
+.cta-button-link a.button:any-link,
+.cta-button-link button {
   color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-radius: 30px;
+  background-color: var(--dark-color);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-weight: normal;
+  font-size: var( --body-font-size-m);
 }
 
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
+.light-text.cta-button-link a.button:any-link,
+.light-text.cta-button-link button {
+  color: var(--dark-color);
+  background-color: var(--background-color);
+}
+
+.cta-button-link .button:hover,
+.cta-button-link a.button:focus,
+.cta-button-link button:hover,
+.cta-button-link button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
@@ -179,12 +176,87 @@ button:disabled:hover {
   cursor: unset;
 }
 
-a.button.secondary,
-button.secondary {
+.cta-button-link a.button.secondary,
+.cta-button-link button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
   color: var(--text-color);
 }
+
+/** Arrow Link **/
+.cta-arrow-link .button-container {
+  display: flex;
+  height: 55%;
+  flex-direction: row;
+  align-items: end
+}
+
+.cta-arrow-link a:any-link {
+  position: relative;
+  display: inline-block;
+  font-size: var(--body-font-size-m);
+  padding: 1em 3em 1em 0;
+  text-decoration: none;
+}
+
+.cta-arrow-link.dark-text a:any-link  {
+  color: var(--dark-color);
+}
+
+.cta-arrow-link.light-text a:any-link  {
+  color: var(--background-color);
+}
+
+.cta-arrow-link a:after,
+.cta-arrow-link a:before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  transition: all 0.5s ease-in-out;
+}
+
+.cta-arrow-link a:before {
+  top: 50%;
+  right: 1em;
+  width: 1em;
+  height: 1em;
+  transform-origin: 50% 50%;
+  transform: translate(0, -0.5em) rotate(45deg);
+  border-radius: 0 0.15em 0 0;
+}
+
+.cta-arrow-link.dark-text a:before {
+  box-shadow: inset -0.1em 0.1em 0 0 var(--dark-color)
+}
+
+.cta-arrow-link.light-text a:before {
+  box-shadow: inset -0.1em 0.1em 0 0 var(--background-color)
+}
+
+.cta-arrow-link a:after {
+  top: 50%;
+  right: 1em;
+  width: 1.3em;
+  height: 0.1em;
+  transform: translate(0, -.05em);
+}
+
+.cta-arrow-link.dark-text a:after {
+  background-color: var(--dark-color);
+}
+
+.cta-arrow-link.light-text a:after {
+  background-color: var(--background-color);
+}
+
+.cta-arrow-link a:hover:before {
+  transform: translate(0.5em, -0.5em) rotate(45deg);
+}
+
+.cta-arrow-link a:hover:after {
+  transform: translate(0.5em, -0.1em);
+}
+
 
 main img {
   max-width: 100%;
@@ -205,12 +277,12 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  padding: 42px 16px;
 }
 
 @media (width >= 600px) {
   main .section {
-    padding: 64px 32px;
+    padding: 42px 32px;
   }
 }
 
@@ -242,4 +314,16 @@ main .section.highlight {
 
 .content-block {
   font-size: var(--body-font-size-s);
+}
+
+.dark-text {
+  color: var( --text-color);
+}
+
+.light-text {
+  color: var( --background-color);
+}
+
+.center-aligned {
+  text-align: center;
 }
